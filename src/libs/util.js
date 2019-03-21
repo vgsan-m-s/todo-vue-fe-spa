@@ -1,9 +1,7 @@
 import axios from 'axios';
 import AppConsts from './appconst'
 
-let util = {
-
-};
+let util = {};
 
 const ajaxUrl = AppConsts.remoteServiceBaseUrl;
 
@@ -43,7 +41,6 @@ util.ajax.interceptors.request.use(function (config) {
                 break;
             case 404:
                 console.error("defaultError404");
-                window.location.replace("/Account/Login");
                 break;
             default:
                 console.error("defaultError");

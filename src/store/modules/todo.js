@@ -19,12 +19,12 @@ const todo = {
                 state.todoList.splice(state.todoList.indexOf(payload.data), 1 );
             }
         },
-        async create({ state, dispatch }, payload) {
+        async create({ state }, payload) {
             let rep = await Util.ajax.post('/todo', payload.data);
             state.todoList.push(rep.data);
         },
-        async patchStatus({ state, dispatch }, payload) {
-            let rep = await Util.ajax.patch('/todo/' + payload.data.id, payload.data);
+        async patchStatus({ state }, payload) {
+            await Util.ajax.patch('/todo/' + payload.data.id, payload.data);
         }
     }
 };
