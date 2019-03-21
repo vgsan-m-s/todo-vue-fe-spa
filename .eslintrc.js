@@ -9,8 +9,6 @@ module.exports = {
         experimentalObjectRestSpread: true
         }
     },
-    extends: ["plugin:prettier/recommended", "airbnb"],
-    plugins: ["react", "jsx-a11y", "import", "prettier"],
     env: {
       es6: true,
       browser: true,
