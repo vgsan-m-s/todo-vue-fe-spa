@@ -1,13 +1,6 @@
 module.exports = {
-    parser: "babel-eslint",
     parserOptions: {
-        ecmaVersion: 6,
-        sourceType: "module",
-        ecmaFeatures: {
-        jsx: true,
-        modules: true,
-        experimentalObjectRestSpread: true
-        }
+        parser: "babel-eslint"
     },
     env: {
       es6: true,
@@ -17,5 +10,8 @@ module.exports = {
     },
     rules: {
         'no-console': 'off',
-    }
+    },
+    extends: [
+        "plugin:vue/essential"
+    ]
 };

@@ -1,19 +1,22 @@
 <template>
   <div id="app">
-
     <div class="nav-div">
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">
+        About
+      </router-link>
     </div>
-    <div class="bg-purple-light" style="height: calc(100vh - 71px)">
-      <router-view/>
+    <div
+      class="bg-purple-light"
+      style="height: calc(100vh - 71px)"
+    >
+      <router-view />
     </div>
-
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  name: 'App',
   data() {
       return {
         activeIndex: '1'

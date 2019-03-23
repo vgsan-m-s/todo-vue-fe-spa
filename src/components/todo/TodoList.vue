@@ -1,37 +1,63 @@
 <template>
   <div style="text-align: center; padding-top: 20px;">
-    
     <div class="todo-section">
-        <el-row>
-            <el-col :span="20">
-                <el-input placeholder="" v-model="input"></el-input>
+      <el-row>
+        <el-col :span="20">
+          <el-input
+            v-model="input"
+            placeholder=""
+          />
+        </el-col>
+        <el-col
+          :span="4"
+          class="pull-right"
+        >
+          <el-button
+            type="primary"
+            @click="addTodo"
+          >
+            Add
+          </el-button>
+        </el-col>
+      </el-row>
+      <span v-if="todoList && todoList.length > 0">
+        <div
+          v-for="(todo, index) in todoList"
+          :key="index"
+          @mouseover="mouseOver(index)"
+          @mouseleave="mouseLeave(index)"
+        >
+          <el-row class="el-todo-row">
+            <el-col
+              :span="22"
+              style="text-align: left;"
+            >
+              <el-checkbox
+                v-model="todo.status"
+                @change="todoStatusChange(todo)"
+              >{{ todo.todo }}</el-checkbox>
             </el-col>
-            <el-col :span="4" class="pull-right">
-                <el-button type="primary" @click="addTodo">Add</el-button>
+            <el-col
+              v-show="index === activeTodoIndex"
+              :span="2"
+              class="pull-right"
+            >
+              <span @click="deleteTodo(todo)"><i class="el-icon-close" /></span>
             </el-col>
+          </el-row>
+        </div>
+      </span>
+      <span v-else>
+        <el-row class="el-todo-row">
+          <el-col
+            :span="24"
+            style="text-align: center;"
+          >
+            <span style="opacity: 0.5;">No items</span>
+          </el-col>
         </el-row>
-        <span v-if="todoList && todoList.length > 0">
-            <div v-for="(todo, index) in todoList" v-bind:key="index"
-            @mouseover="mouseOver(index)" @mouseleave="mouseLeave(index)">
-                <el-row class="el-todo-row">
-                    <el-col :span="22" style="text-align: left;">
-                        <el-checkbox @change="todoStatusChange(todo)" v-model="todo.status">{{todo.todo}}</el-checkbox>
-                    </el-col>
-                    <el-col v-show="index === activeTodoIndex" :span="2" class="pull-right">
-                        <span @click="deleteTodo(todo)"><i class="el-icon-close"></i></span>
-                    </el-col>
-                </el-row>
-            </div>
-        </span>
-        <span v-else>
-            <el-row class="el-todo-row">
-                <el-col :span="24" style="text-align: center;">
-                    <span style="opacity: 0.5;">No items</span>
-                </el-col>
-            </el-row>
-        </span>
+      </span>
     </div>
-
   </div>
 </template>
 
