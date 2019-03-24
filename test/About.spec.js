@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import About from '@/components/about/About'
+import About from '@/components/about/About.vue'
 
 const Constructor = Vue.extend(About)
 const vm = new Constructor().$mount()

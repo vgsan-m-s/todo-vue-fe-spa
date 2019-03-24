@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About should match the snapshot 1`] = `
+<div
+  style="text-align: center; padding-top: 20px;"
+>
+  <h1>
+    Todo list
+  </h1>
+   
+  <p>
+    Single-page application-SPA in Vue JS
+  </p>
+</div>
+`;
